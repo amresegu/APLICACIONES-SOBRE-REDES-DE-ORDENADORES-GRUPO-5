@@ -182,7 +182,7 @@ La aplicación **MiPerruqueria** está disponible para dispositivos iOS (iPhone)
 
 ### Enlace de acceso
 
-- **[Acceder a MiPerruqueria (iOS)](https://miperruqueriaa.netlify.app)**
+- **[Descargar MiPerruqueria (iOS)](https://miperruqueriaa.netlify.app)**
 
 ### Pasos para instalar en un iPhone
 
