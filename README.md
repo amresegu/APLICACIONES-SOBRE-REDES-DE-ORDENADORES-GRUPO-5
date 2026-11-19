@@ -146,20 +146,22 @@ Para comprobar que el servidor está funcionando, accede a la URL de la API. Deb
 
 ## Descarga e Instalación de la Aplicación (Android)
 
-La aplicación **MiPerruqueria** está lista para instalarse directamente en dispositivos Android sin necesidad de Expo Go.
+La aplicación **MiPerruqueria** está disponible para dispositivos Android mediante un archivo APK, que permite instalarla directamente en el móvil sin necesidad de utilizar Expo Go ni descargarla desde Google Play.
 
-## Enlace de Descarga
-- **[Descargar App](AQUÍ_TU_ENLACE_PERMANENTE)**
+### Enlace de descarga
 
-###  Pasos para instalar desde un un móvil Android:
-1. Descarga el archivo `.apk` directamente desde el móvil usando el enlace de arriba
-2. Abre el archivo descargado en tu dispositivo Android
-3. Si el sistema lo solicita, activa la opción **"Permitir la instalación de aplicaciones de fuentes desconocidas"**.
-4. Pulsa en **Instalar** y ya tienes la aplicación instalada
+- **[Descargar MiPerruqueria (APK)](AQUÍ_TU_ENLACE_DE_DESCARGA)**
 
-## Descarga e Instalación de la Aplicación (iOS)
+### Pasos para instalar la aplicación en un móvil Android
 
-La aplicación **MiPerruqueria** está disponible para dispositivos iPhone mediante una versión web alojada en Netlify
+1. Abre el enlace de descarga desde el navegador de tu dispositivo Android
+2. Descarga el archivo `.apk` de MiPerruqueria
+3. Una vez descargado, abre el archivo desde las notificaciones o desde la carpeta **Descargas**
+4. Si Android muestra un aviso de seguridad, permite la instalación de aplicaciones desconocidas para el navegador o gestor de archivos que estés utilizando
+5. Pulsa en **Instalar** y espera a que finalice el proceso
+6. Una vez instalada, pulsa en **Abrir** para comenzar a utilizar MiPerruqueria
+
+**Nota:** No es necesario tener Expo Go instalado. La aplicación se ejecuta de forma independiente y necesita conexión a Internet para comunicarse con el backend desplegado en Render y acceder a los servicios de la aplicación.
 
 ### Enlace de Descarga
 
