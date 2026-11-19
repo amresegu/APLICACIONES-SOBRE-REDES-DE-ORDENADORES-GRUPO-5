@@ -169,6 +169,8 @@ La aplicación **MiPerruqueria** está disponible para dispositivos Android medi
 
 **Nota:** La aplicación se ejecuta de forma independiente y necesita conexión a Internet para comunicarse con el backend desplegado en Render y acceder a los servicios de la aplicación
 
+## Descarga e Instalación de la Aplicación (IOS)
+
 ### Enlace de Descarga
 
 - **[Descargar App](https://stellar-alfajores-731d07.netlify.app)**
