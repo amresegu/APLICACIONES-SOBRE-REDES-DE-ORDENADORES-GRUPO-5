@@ -173,7 +173,7 @@ La aplicación **MiPerruqueria** está disponible para dispositivos Android medi
 
 ### Enlace de Descarga
 
-- **[Descargar App](https://stellar-alfajores-731d07.netlify.app)**
+- **[Descargar App](https://miperruqueriaa.netlify.app)**
 
 ### Pasos para instalar desde un movil iPhone:
 
