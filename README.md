@@ -187,7 +187,7 @@ La aplicación **MiPerruqueria** está disponible para dispositivos iOS (iPhone)
 ### Pasos para instalar en un iPhone
 
 1. Abre el navegador **Safari** en tu iPhone
-2. Accede al enlace de MiPerruqueria: https://miperruqueriaa.netlify.app
+2. Accede al enlace de MiPerruqueria
 3. Una vez cargada la aplicación, pulsa el botón **Compartir** de Safari (icono del cuadrado con una flecha hacia arriba)
 4. Desplázate por las opciones y selecciona **«Añadir a pantalla de inicio»**
 5. Comprueba el nombre de la aplicación y pulsa **«Añadir»**
