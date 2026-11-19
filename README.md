@@ -167,7 +167,7 @@ La aplicación **MiPerruqueria** está disponible para dispositivos Android medi
 5. Pulsa en **Instalar** y espera a que finalice el proceso
 6. Una vez instalada, pulsa en **Abrir** para comenzar a utilizar MiPerruqueria
 
-**Nota:** No es necesario tener Expo Go instalado. La aplicación se ejecuta de forma independiente y necesita conexión a Internet para comunicarse con el backend desplegado en Render y acceder a los servicios de la aplicación
+**Nota:** La aplicación se ejecuta de forma independiente y necesita conexión a Internet para comunicarse con el backend desplegado en Render y acceder a los servicios de la aplicación
 
 ### Enlace de Descarga
 
