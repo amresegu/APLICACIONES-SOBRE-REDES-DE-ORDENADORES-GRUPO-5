@@ -171,14 +171,26 @@ La aplicación **MiPerruqueria** está disponible para dispositivos Android medi
 
 ## Descarga e Instalación de la Aplicación (iOS)
 
-### Enlace de Descarga
+La aplicación **MiPerruqueria** está disponible para dispositivos iOS (iPhone) mediante una aplicación web progresiva (PWA), publicada en Netlify sin necesidad de utilizar Expo Go ni descargarla desde Apple Store
 
-- **[Descargar App](https://miperruqueriaa.netlify.app)**
+### Tecnologías y herramientas utilizadas
 
-### Pasos para instalar desde un movil iPhone:
+- **React Native / Expo:** Desarrollo de la aplicación
+- **Expo Web:** Adaptación de la aplicación para su ejecución en navegadores web
+- **Netlify:** Servicio utilizado para alojar y publicar la versión web de MiPerruqueria
+- **PWA (Progressive Web App):** Permite añadir la aplicación a la pantalla de inicio del iPhone y acceder a ella de forma similar a una aplicación instalada
 
-1. Abre Safari en tu iPhone.
-2. Accede al enlace de MiPerruqueria publicado en Netlify
-3. Pulsa el botón de compartir de Safari
-4. Selecciona **«Añadir a pantalla de inicio»**
-5. Confirma pulsando **«Añadir»**
+### Enlace de acceso
+
+- **[Acceder a MiPerruqueria (iOS)](https://miperruqueriaa.netlify.app)**
+
+### Pasos para instalar en un iPhone
+
+1. Abre el navegador **Safari** en tu iPhone
+2. Accede al enlace de MiPerruqueria: https://miperruqueriaa.netlify.app
+3. Una vez cargada la aplicación, pulsa el botón **Compartir** de Safari (icono del cuadrado con una flecha hacia arriba)
+4. Desplázate por las opciones y selecciona **«Añadir a pantalla de inicio»**
+5. Comprueba el nombre de la aplicación y pulsa **«Añadir»**
+6. Aparecerá el icono de MiPerruqueria en la pantalla de inicio del iPhone. Pulsa sobre él para acceder a la aplicación
+
+**Nota:** Es necesario disponer de conexión a Internet para acceder al backend desplegado en Render y utilizar las funcionalidades que requieren comunicación con el servidor
