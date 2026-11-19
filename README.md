@@ -143,10 +143,16 @@ Para comprobar que el servidor está funcionando, accede a la URL de la API. Deb
   "mensaje": "¡API REST levantada y conectada a Aiven!"
 }
 ```
-
 ## Descarga e Instalación de la Aplicación (Android)
 
-La aplicación **MiPerruqueria** está disponible para dispositivos Android mediante un archivo APK, que permite instalarla directamente en el móvil sin necesidad de utilizar Expo Go ni descargarla desde Google Play.
+La aplicación **MiPerruqueria** está disponible para dispositivos Android mediante un archivo APK, que permite instalarla directamente en el móvil sin necesidad de utilizar Expo Go ni descargarla desde Google Play
+
+**Tecnologías y herramientas utilizadas para la compilación:**
+
+- **React Native:** Desarrollo de la aplicación móvil
+- **Expo:** framework desarrollo de la app
+- **EAS Build (Expo Application Services):** Servicio para compilar la aplicación y generar el archivo APK
+- **Android Keystore:** Sistema de firma digital utilizado para firmar la app 
 
 ### Enlace de descarga
 
@@ -161,7 +167,7 @@ La aplicación **MiPerruqueria** está disponible para dispositivos Android medi
 5. Pulsa en **Instalar** y espera a que finalice el proceso
 6. Una vez instalada, pulsa en **Abrir** para comenzar a utilizar MiPerruqueria
 
-**Nota:** No es necesario tener Expo Go instalado. La aplicación se ejecuta de forma independiente y necesita conexión a Internet para comunicarse con el backend desplegado en Render y acceder a los servicios de la aplicación.
+**Nota:** No es necesario tener Expo Go instalado. La aplicación se ejecuta de forma independiente y necesita conexión a Internet para comunicarse con el backend desplegado en Render y acceder a los servicios de la aplicación
 
 ### Enlace de Descarga
 
