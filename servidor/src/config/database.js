@@ -17,7 +17,7 @@ const sequelize = new Sequelize(
             connectTimeout: 20000,
             ssl: {
                 ca: fs.readFileSync(path.join(__dirname, '..', 'ca.pem')),
-                rejectUnauthorized: false,
+                rejectUnauthorized: true,
             },
         },
     }
