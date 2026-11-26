@@ -156,7 +156,7 @@ La aplicación **MiPerruqueria** está disponible para dispositivos Android medi
 
 ### Enlace de descarga
 
-- **[Descargar MiPerruqueria (APK)](https://expo.dev/accounts/amaiiaresanoo/projects/MiPerruqueria/builds/29101943-671b-4852-83b2-7a125b7ea452)**
+- **[Descargar MiPerruqueria (APK)](https://expo.dev/accounts/angela8a.m/projects/MiPerruqueria/builds/7eb8dc38-d3d9-4654-a522-2533ef856b13)**
 
 ### Pasos para instalar la aplicación en un móvil Android
 
