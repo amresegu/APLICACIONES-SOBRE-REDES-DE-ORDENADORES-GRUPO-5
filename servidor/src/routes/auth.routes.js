@@ -5,8 +5,14 @@ const Usuario = require('../models/user.model');
 const TokenInvalido = require('../models/blacklist.model');
 const sequelize = require('../../config/database');
 const { verificarToken, generarToken } = require('../middlewares/auth.middleware');
+const { limitadorLogin, limitadorRegistro } = require('../middlewares/limitadorLogin');
 
-router.post('/registro', async (req, res) => {
+// Hash de relleno: se usa cuando el usuario no existe para que el login tarde
+// lo mismo que con un usuario real (evita adivinar usuarios midiendo el tiempo).
+// El 10 debe ser el mismo coste que usa tu modelo de usuario al encriptar.
+const HASH_FALSO = bcrypt.hashSync('relleno-para-igualar-tiempos', 10);
+
+router.post('/registro', limitadorRegistro, async (req, res) => {
     const { nombre, tlf, contrasenia } = req.body;
 
     if (!nombre || !tlf || !contrasenia) {
@@ -59,26 +65,27 @@ router.post('/registro', async (req, res) => {
     }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', limitadorLogin, async (req, res) => {
     const { nombre, contrasenia } = req.body;
 
     if (!nombre || !contrasenia) {
         return res.status(400).json({ error: 'Faltan campos obligatorios' });
     }
 
+    if (typeof nombre !== 'string' || typeof contrasenia !== 'string') {
+        return res.status(400).json({ error: 'Formato de datos inválido.' });
+    }
+
     try {
         const usuarioDB = await Usuario.findOne({ where: { nombre: nombre } });
 
-        if (!usuarioDB) {
-            return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
-        }
-
+        // Siempre se compara contra un hash, exista o no el usuario
         const contrasenaValida = await bcrypt.compare(
             contrasenia,
-            usuarioDB.contrasenia
+            usuarioDB ? usuarioDB.contrasenia : HASH_FALSO
         );
 
-        if (!contrasenaValida) {
+        if (!usuarioDB || !contrasenaValida) {
             return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
         }
 

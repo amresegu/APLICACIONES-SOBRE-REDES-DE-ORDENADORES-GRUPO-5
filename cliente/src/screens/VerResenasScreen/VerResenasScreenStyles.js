@@ -1,4 +1,3 @@
-
 import { Platform, StyleSheet } from "react-native";
 
 const fuente = Platform.select({
@@ -6,6 +5,8 @@ const fuente = Platform.select({
   android: "serif",
   default: "Georgia, 'Times New Roman', serif",
 });
+
+const ANCHO_MAXIMO = 600;
 
 const suave = {
   shadowColor: "#8E3E63",
@@ -26,40 +27,31 @@ const tituloBase = {
   textShadowRadius: 0,
 };
 
-const campo = {
-  width: "80%",
-  height: 52,
-  borderRadius: 26,
-  paddingHorizontal: 20,
-  fontSize: 16,
-  color: "#3D2232",
-  backgroundColor: "#FFFFFF",
-  ...suave,
-  shadowOpacity: 0.1,
-  elevation: 2,
-};
-
 const estilos = StyleSheet.create({
   contenedor: {
     flex: 1,
     backgroundColor: "#FDF7F9",
     alignItems: "center",
-    paddingHorizontal: 24,
-    paddingTop: 140,
-    paddingBottom: 10,
+    paddingHorizontal: 16,
   },
   titulo: {
     ...tituloBase,
-    fontSize: 34,
+    fontSize: 32,
     textAlign: "center",
-    marginTop: 0,
-    marginBottom: 20,
+    marginBottom: 16,
+    alignSelf: "stretch",
   },
   contenido: {
     flex: 1,
     minHeight: 0,
     width: "100%",
+    maxWidth: ANCHO_MAXIMO,
+  },
+  estadoCentrado: {
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
+    paddingHorizontal: 16,
   },
   mensaje: {
     fontFamily: fuente,
@@ -68,24 +60,31 @@ const estilos = StyleSheet.create({
     color: "#8A697A",
     textAlign: "center",
     lineHeight: 24,
-    marginTop: 20,
+  },
+  mensajeError: {
+    fontSize: 16,
+    color: "red",
+    textAlign: "center",
+  },
+  lista: {
+    flex: 1,
+    width: "100%",
   },
   listaContenedor: {
-    paddingHorizontal: 10,
-    width: "100%",
-    maxWidth: 600,
-    alignSelf: "center",
-    paddingBottom: 20,
+    paddingTop: 4,
+    paddingBottom: 16,
+    paddingHorizontal: 2,
   },
   tarjetaResena: {
+    alignSelf: "stretch",
     backgroundColor: "#FFFFFF",
-    padding: 22,
-    marginVertical: 10,
-    borderRadius: 26,
-    width: "100%",
+    padding: 20,
+    marginVertical: 8,
+    borderRadius: 24,
     ...suave,
   },
   usuarioResena: {
+    flexShrink: 1,
     fontFamily: fuente,
     fontSize: 18,
     fontWeight: "bold",
@@ -94,20 +93,23 @@ const estilos = StyleSheet.create({
     marginBottom: 6,
   },
   puntuacionResena: {
+    flexShrink: 1,
     fontSize: 16,
     color: "#D4A359",
     marginBottom: 8,
   },
   comentarioResena: {
+    flexShrink: 1,
     fontSize: 15,
     color: "#3D2232",
     lineHeight: 22,
   },
   botonVolver: {
     width: "100%",
-    padding: 16,
-    marginTop: 15,
-    marginBottom: 10,
+    maxWidth: ANCHO_MAXIMO,
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    marginTop: 12,
     borderRadius: 26,
     backgroundColor: "#EADAE4",
     alignItems: "center",
