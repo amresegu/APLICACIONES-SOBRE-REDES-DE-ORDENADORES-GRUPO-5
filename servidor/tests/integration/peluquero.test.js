@@ -9,8 +9,8 @@ const Reserva = require("../../src/models/reserva.model");
 const Animal = require("../../src/models/animal.model");
 const Resena = require("../../src/models/resena.model");
 const TokenInvalido = require("../../src/models/blacklist.model");
+const ConfigTienda = require("../../src/models/config.model");
 const sequelize = require("../../config/database");
-const horarioService = require("../../src/services/horario.service");
 const app = require("../../index");
 
 const SECRET_KEY = process.env.SECRET_KEY || "mi_clave_super_secreta_perruqueria";
@@ -24,19 +24,20 @@ describe("Integración API - Rutas de /horario y /peluquero", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
     vi.spyOn(TokenInvalido, "findOne").mockResolvedValue(null);
+    vi.spyOn(ConfigTienda, "findByPk").mockResolvedValue({
+      valor: JSON.stringify({
+        bloques: [{ inicio: "09:00", fin: "14:00" }],
+        paso: 60,
+      }),
+    });
+    vi.spyOn(ConfigTienda, "upsert").mockResolvedValue([]);
   });
 
   it("GET /horario devuelve el horario configurado (200)", async () => {
-    const horarioMock = {
-      bloques: [{ inicio: "09:00", fin: "13:00" }],
-      paso: 60,
-      texto: "Abierto de 09:00 a 13:00",
-    };
-    vi.spyOn(horarioService, "leerHorario").mockResolvedValue(horarioMock);
-
     const res = await request(app).get("/horario");
     expect(res.status).toBe(200);
-    expect(res.body).toEqual(horarioMock);
+    expect(res.body.bloques).toEqual([{ inicio: "09:00", fin: "14:00" }]);
+    expect(res.body.texto).toBe("Abierto de 09:00 a 14:00");
   });
 
   it("rechaza con 403 si un usuario con rol cliente intenta acceder a /peluquero/agenda", async () => {
@@ -59,19 +60,22 @@ describe("Integración API - Rutas de /horario y /peluquero", () => {
       .send({ bloques: [] });
     expect(invalido.status).toBe(400);
 
-    const guardado = {
-      bloques: [{ inicio: "09:00", fin: "13:00" }],
-      paso: 60,
-      texto: "Abierto de 09:00 a 13:00",
-    };
-    vi.spyOn(horarioService, "guardarHorario").mockResolvedValue(guardado);
+    vi.spyOn(ConfigTienda, "findByPk")
+      .mockResolvedValueOnce(null)
+      .mockResolvedValueOnce({
+        valor: JSON.stringify({
+          bloques: [{ inicio: "09:00", fin: "13:00" }],
+          paso: 60,
+        }),
+      });
 
     const valido = await request(app)
       .put("/horario")
       .set("Authorization", bearer("peluquero1"))
       .send({ bloques: [{ inicio: "09:00", fin: "13:00" }] });
     expect(valido.status).toBe(200);
-    expect(valido.body).toEqual(guardado);
+    expect(valido.body.bloques).toEqual([{ inicio: "09:00", fin: "13:00" }]);
+    expect(valido.body.texto).toBe("Abierto de 09:00 a 13:00");
   });
 
   it("GET /peluquero/agenda devuelve citas formateadas de la fecha indicada", async () => {
@@ -125,7 +129,7 @@ describe("Integración API - Rutas de /horario y /peluquero", () => {
   it("gestiona roles y eliminación de usuarios impidiendo auto-cambios o borrar peluqueros", async () => {
     const findByPkSpy = vi
       .spyOn(Usuario, "findByPk")
-      .mockResolvedValueOnce({ rol: "peluquero" }) 
+      .mockResolvedValueOnce({ rol: "peluquero" })
       .mockResolvedValueOnce({ nombre: "cliente1", rol: "cliente", save: vi.fn().mockResolvedValue() });
 
     const rolOk = await request(app)
@@ -136,7 +140,7 @@ describe("Integración API - Rutas de /horario y /peluquero", () => {
     expect(rolOk.body.rol).toBe("peluquero");
 
     findByPkSpy
-      .mockResolvedValueOnce({ rol: "peluquero" }) 
+      .mockResolvedValueOnce({ rol: "peluquero" })
       .mockResolvedValueOnce({ nombre: "otro_pelu", rol: "peluquero" });
 
     const borrarPelu = await request(app)
@@ -145,7 +149,7 @@ describe("Integración API - Rutas de /horario y /peluquero", () => {
     expect(borrarPelu.status).toBe(400);
 
     findByPkSpy
-      .mockResolvedValueOnce({ rol: "peluquero" }) 
+      .mockResolvedValueOnce({ rol: "peluquero" })
       .mockResolvedValueOnce({ nombre: "cliente1", rol: "cliente" });
 
     vi.spyOn(sequelize, "transaction").mockImplementation(async (fn) => fn({}));
