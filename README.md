@@ -182,7 +182,7 @@ La aplicación **MiPerruqueria** está disponible para dispositivos iOS (iPhone)
 
 ### Enlace de acceso
 
-- **[Descargar MiPerruqueria (iOS)](https://expo.dev/accounts/angela8a.m/projects/MiPerruqueria/builds/7eb8dc38-d3d9-4654-a522-2533ef856b13)*
+- **[Descargar MiPerruqueria (iOS)](https://expo.dev/accounts/angela8a.m/projects/MiPerruqueria/builds/7eb8dc38-d3d9-4654-a522-2533ef856b13)**
 
 ### Pasos para instalar en un iPhone
 
